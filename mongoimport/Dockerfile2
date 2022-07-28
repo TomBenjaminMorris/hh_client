@@ -1,3 +1,0 @@
-FROM mongo
-COPY . .
-CMD mongo --host=mongo bars --eval "db.bars.createIndex({ location: '2dsphere' });"

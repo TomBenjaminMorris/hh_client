@@ -18,7 +18,7 @@ export class MyMap extends React.Component {
     this.state = {
       latitude: 53.8008,
       longitude: -1.5491,
-      zoom: 7,
+      zoom: 15,
       showingInfoWindow: false,
       center: {
         lat: 51.5074,
@@ -217,16 +217,18 @@ export class MyMap extends React.Component {
               setBounds(x.bounds);
             }}
             onTilesLoaded={() => {
-              this.state.zoom === 7 && this.setState({ zoom: 11 });
+              // this.state.zoom === 7 && this.setState({ zoom: 11 });
+              this.setState({ displayMarkers: true });
+              this.props.onMapReady();
             }}
-            onZoomAnimationEnd={() => {
-              if (this.state.zoom === 11) {
-                this.setState({ zoom: 15 });
-              } else if (this.state.zoom === 15) {
-                this.setState({ displayMarkers: true });
-                this.props.onMapReady();
-              }
-            }}
+            // onZoomAnimationEnd={() => {
+            //   if (this.state.zoom === 11) {
+            //     this.setState({ zoom: 15 });
+            //   } else if (this.state.zoom === 15) {
+            //     this.setState({ displayMarkers: true });
+            //     this.props.onMapReady();
+            //   }
+            // }}
           >
             <Marker
               className="currentLocation"

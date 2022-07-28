@@ -27,6 +27,8 @@ export const SET_JWT = "SET_JWT";
 export const RESET = "RESET";
 export const SET_BOUNDS = "SET_BOUNDS";
 
+const API_BASE_URL = 'https://65wqedpzjd.execute-api.eu-west-2.amazonaws.com'
+
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
 export function reset() {
@@ -49,16 +51,16 @@ export function setBounds(bounds) {
   return { type: SET_BOUNDS, payload: bounds };
 }
 
-export const getToken = async (dispatch, getState) => {
-  const { jwt } = getState();
-  let newJwt;
-  if (!jwt) {
-    newJwt = await axios.get("/api/jwt");
-    dispatch({ type: SET_JWT, payload: newJwt.data });
-    return newJwt.data;
-  }
-  return jwt;
-};
+// export const getToken = async (dispatch, getState) => {
+//   const { jwt } = getState();
+//   let newJwt;
+//   if (!jwt) {
+//     newJwt = await axios.get("/api/jwt");
+//     dispatch({ type: SET_JWT, payload: newJwt.data });
+//     return newJwt.data;
+//   }
+//   return jwt;
+// };
 
 export function getGooglePlacePhotos(place_id) {
   return async (dispatch, getState) => {
@@ -105,12 +107,12 @@ export function fetchData(obj) {
   const { lat, long, miles } = obj;
 
   return async (dispatch, getState) => {
-    const token = await getToken(dispatch, getState);
+    // const token = await getToken(dispatch, getState);
 
     dispatch({ type: DATA_FETCH_REQUEST });
-    const values = await axios.get("/api/locations", {
+    const values = await axios.get(API_BASE_URL + "/api/locations", {
       params: { long: long, lat: lat, miles: miles },
-      headers: { Authorization: "jwt " + token },
+      // headers: { Authorization: "jwt " + token },
     });
 
     //quicK way to view all bars!
@@ -129,11 +131,11 @@ export function fetchData(obj) {
 export function fetchOne(id) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_FETCH_SINGLE_REQUEST });
-    const token = await getToken(dispatch, getState);
+    // const token = await getToken(dispatch, getState);
 
-    const value = await axios.get("/api/bar", {
+    const value = await axios.get(API_BASE_URL + "/api/bar", {
       params: { place_id: id },
-      headers: { Authorization: "jwt " + token },
+      // headers: { Authorization: "jwt " + token },
     });
 
     let valueArray = [];
@@ -146,12 +148,12 @@ export function fetchOne(id) {
 
 export function postData(obj) {
   return async (dispatch, getState) => {
-    const token = await getToken(dispatch, getState);
+    // const token = await getToken(dispatch, getState);
 
     dispatch({ type: DATA_POST_REQUEST });
     await axios
-      .post("/api/bar", obj, {
-        headers: { Authorization: "jwt " + token },
+      .post(API_BASE_URL + "/api/bar", obj, {
+        // headers: { Authorization: "jwt " + token },
       })
       .then(function(response) {
         return dispatch({ type: DATA_POST_SUCCESS });
