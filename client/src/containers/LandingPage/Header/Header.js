@@ -39,10 +39,8 @@ class header extends Component {
 
   handleScroll = () => {
     if (window.scrollY > 30 && this.state.displayHeader) {
-      console.log("hiding");
       this.setState({ displayHeader: false });
     } else if (window.scrollY <= 30 && !this.state.displayHeader) {
-      console.log("showing");
       this.setState({ displayHeader: true });
     }
   };
