@@ -26,6 +26,8 @@ jobs:
     - name: Install Packages
       run: |
         cd client
+        echo "REACT_APP_GOOGLE_API_KEY=${{ secrets.REACT_APP_GOOGLE_API_KEY }}" > .env
+        echo "REACT_APP_HH_HEADER=${{ secrets.REACT_APP_HH_HEADER }}" >> .env
         npm install
 
     - name: Build React App
@@ -46,4 +48,3 @@ jobs:
         aws s3 sync client/build/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read
         aws cloudfront create-invalidation --distribution-id E10ZGJ9I0V4A9W --paths "/*"
         aws cloudfront create-invalidation --distribution-id E3U8YMOOSTBOTL --paths "/*"
-
