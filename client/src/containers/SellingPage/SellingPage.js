@@ -10,6 +10,7 @@ import TopOfList from "../icons/top_of_list.svg";
 import Verified from "../icons/verified.svg";
 import UploadPhoto from "../icons/photo_upload.svg";
 import CloseIcon from "../icons/close.svg";
+const API_BASE_URL = 'https://65wqedpzjd.execute-api.eu-west-2.amazonaws.com'
 
 class SellingPage extends Component {
   state = {
@@ -34,24 +35,38 @@ class SellingPage extends Component {
   };
 
   handleEmailSubmitted = () => {
-    alert("Thanks for your interest, we will get back to you ASAP.");
-    this.postToSignUpDB(this.state.emailInputVal);
+    // this.postToSignUpDB(this.state.emailInputVal);
+    this.sendEmail(this.state.emailInputVal);
     this.setState({ showModal: false });
+    alert("Thanks for your interest, we will get back to you ASAP.");
   };
 
-  postToSignUpDB = (email) => {
+  // postToSignUpDB = (email) => {
+  //   axios
+  //     .post("https://hapihour-sign-up.firebaseio.com/sign_up.json", {
+  //       email: email,
+  //     })
+  //     .then((res) => {
+  //       const fetchedUsers = [];
+  //       for (let key in res.data) {
+  //         fetchedUsers.push({
+  //           ...res.data[key],
+  //           id: key,
+  //         });
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  sendEmail = (email) => {
     axios
-      .post("https://hapihour-sign-up.firebaseio.com/sign_up.json", {
-        email: email,
+      .post(API_BASE_URL + "/api/sendEmail", null, {
+        params: { emailAddress: email }
       })
       .then((res) => {
-        const fetchedUsers = [];
-        for (let key in res.data) {
-          fetchedUsers.push({
-            ...res.data[key],
-            id: key,
-          });
-        }
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
