@@ -16,7 +16,7 @@ jobs:
     env:
      AWS_DEFAULT_REGION: eu-west-2
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Use Node.js 16
       uses: actions/setup-node@v3
@@ -45,6 +45,6 @@ jobs:
 
     - name: Sync S3 & Invalidate Caches
       run: |
-        aws s3 sync client/build/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read
+        aws s3 sync client/build/ s3://${{ secrets.AWS_S3_BUCKET }}
         aws cloudfront create-invalidation --distribution-id E10ZGJ9I0V4A9W --paths "/*"
         aws cloudfront create-invalidation --distribution-id E3U8YMOOSTBOTL --paths "/*"
