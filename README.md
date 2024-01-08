@@ -1,5 +1,9 @@
-# Hapihour
+# Hapihour Client + Infra
 Hapihour is a free location-based happy hour finder which informs you of active, upcoming, and expired deals near you.
+
+This repo includes the SPA webapp code and AWS infrastructure as code.
+
+https://www.hapihour.io
 
 Technologies used on the project:
 * ReactJS
@@ -18,12 +22,7 @@ Technologies used on the project:
 #### Bar focus page
 <img width="680" alt="image" src="https://github.com/TomBenjaminMorris/hh_client/assets/32457567/39185c86-60bd-469f-9fe7-8801bee17a5f">
 
-
-
-
 ## Useful links:
-* https://www.hapihour.io
-
 ### AWS OIDC & GitHub Actions
 * https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
 * https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
