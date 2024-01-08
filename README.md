@@ -1,4 +1,26 @@
-# hh_client
+# Hapihour
+Hapihour is a free location-based happy hour finder which informs you of active, upcoming, and expired deals near you.
+
+Technologies used on the project:
+* ReactJS
+* Redux
+* Terraform
+* AWS - S3, CloudFront, ACM, Route53, & IAM
+* Github Actions
+
+## Preview Screenshots
+#### Homepage
+<img width="680" alt="image" src="https://github.com/TomBenjaminMorris/hh_client/assets/32457567/d74a17e0-f60e-49c8-8d98-61763ca488d2">
+
+#### Map page
+<img width="680" alt="image" src="https://github.com/TomBenjaminMorris/hh_client/assets/32457567/658431bc-dfeb-4627-bcd7-c180e4100af6">
+
+#### Bar focus page
+<img width="680" alt="image" src="https://github.com/TomBenjaminMorris/hh_client/assets/32457567/39185c86-60bd-469f-9fe7-8801bee17a5f">
+
+
+
+
 ## Useful links:
 * https://www.hapihour.io
 
