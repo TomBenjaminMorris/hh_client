@@ -6,6 +6,10 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = "eu-west-2"
+}
+
 locals {
   domain_name       = "hapihour.io"
   root_domain_name  = "hapihour.io"
@@ -16,7 +20,7 @@ locals {
 }
 
 module "static-website" {
-  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.1"
+  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.3"
 
   domain_name       = local.domain_name
   root_domain_zone  = local.root_domain_name
