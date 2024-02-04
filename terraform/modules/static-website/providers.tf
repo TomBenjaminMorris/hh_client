@@ -7,12 +7,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-
-  backend "s3" {
-    bucket = "tbm-tf-state-bucket"
-    key    = "hapihour_client"
-    region = "eu-west-1"
-  }
 }
 
 provider "aws" {

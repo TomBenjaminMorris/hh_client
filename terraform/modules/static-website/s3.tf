@@ -34,7 +34,7 @@ resource "aws_s3_bucket_public_access_block" "www_bucket_public_block" {
 
 
 resource "aws_s3_bucket" "www_bucket" {
-  bucket = "www.${var.bucket_name}"
+  bucket = "www.${var.domain_name}"
   tags = var.common_tags
 }
 
@@ -49,7 +49,7 @@ resource "aws_s3_bucket_public_access_block" "root_bucket_public_block" {
 }
 
 resource "aws_s3_bucket" "root_bucket" {
-  bucket = var.bucket_name
+  bucket = var.domain_name
   website {
     redirect_all_requests_to = "https://www.${var.domain_name}"
   }

@@ -3,9 +3,14 @@ variable "domain_name" {
   description = "The domain name for the website."
 }
 
-variable "bucket_name" {
+variable "root_domain_zone" {
   type        = string
-  description = "The name of the bucket without the www. prefix. Normally domain_name."
+  description = "The root domain name for the website."
+}
+
+variable "allowed_locations" {
+  type        = list(string)
+  description = "List of allowed countries"
 }
 
 variable "common_tags" {
