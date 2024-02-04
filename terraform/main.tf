@@ -16,7 +16,7 @@ locals {
 }
 
 module "static-website" {
-  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.1"
+  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.2"
 
   domain_name       = local.domain_name
   root_domain_zone  = local.root_domain_name
