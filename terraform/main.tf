@@ -21,7 +21,7 @@ locals {
 }
 
 module "static-website" {
-  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.8"
+  source = "git@github.com:TomBenjaminMorris/tf-modules.git//static-website?ref=static-website-v0.0.11"
 
   project_name      = local.project_name
   domain_name       = local.domain_name
