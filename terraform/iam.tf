@@ -36,6 +36,9 @@ resource "aws_iam_role" "github_actions_role" {
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
     "arn:aws:iam::aws:policy/CloudFrontFullAccess",
+    "arn:aws:iam::aws:policy/AmazonRoute53FullAccess",
+    "arn:aws:iam::aws:policy/IAMFullAccess",
+    "arn:aws:iam::aws:policy/AWSCertificateManagerFullAccess",
   ]
   max_session_duration = 3600
   path                 = "/"
