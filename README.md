@@ -29,6 +29,8 @@ Technologies used on the project:
 * https://github.com/marketplace/actions/configure-aws-credentials-for-github-actions
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html
 * https://github.com/marketplace/actions/s3-sync
+* https://github.com/actions/setup-node/issues/214
+* https://itnext.io/github-actions-terraform-deployments-with-a-review-of-planned-changes-30143358bb5c
 
 ### AWS OAC
 * https://tutorialsdojo.com/lightning-fast-static-website-with-amazon-s3-and-cloudfront-with-origin-access-control-oac/
