@@ -39,6 +39,10 @@ resource "aws_iam_role" "github_actions_role" {
     "arn:aws:iam::aws:policy/AmazonRoute53FullAccess",
     "arn:aws:iam::aws:policy/IAMFullAccess",
     "arn:aws:iam::aws:policy/AWSCertificateManagerFullAccess",
+    "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
+    "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
+    "arn:aws:iam::aws:policy/AmazonSESFullAccess",
+    "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator",
   ]
   max_session_duration = 3600
   path                 = "/"
